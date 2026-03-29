@@ -197,6 +197,28 @@
       margin-top: 2rem;
     }
   </style>
+
+  <button id="payBtn">Book & Pay</button>
+
+<script>
+  document.getElementById("payBtn").addEventListener("click", async () => {
+    const res = await fetch("https://YOUR_BACKEND_URL/create-checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tutorId: "tutor_123",
+        price: 5000   // $50.00
+      })
+    });
+
+    const data = await res.json();
+    window.location.href = data.url;
+  });
+</script>
+
+
+
+  
 </head>
 
 <body>
@@ -307,24 +329,6 @@
       </article>
     </section>
   </main>
-
-  <button id="payBtn">Book & Pay</button>
-
-<script>
-  document.getElementById("payBtn").addEventListener("click", async () => {
-    const res = await fetch("https://YOUR_BACKEND_URL/create-checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        tutorId: "tutor_123",
-        price: 5000   // $50.00
-      })
-    });
-
-    const data = await res.json();
-    window.location.href = data.url;
-  });
-</script>
 
 
   
