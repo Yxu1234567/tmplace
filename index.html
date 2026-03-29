@@ -332,6 +332,20 @@
   </main>
 
 
+ <button id="payBtn">Book & Pay</button>
+
+  <script>
+    document.getElementById("payBtn").addEventListener("click", async () => {
+      const res = await fetch("https://YOUR_BACKEND_URL/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+      });
+
+      const data = await res.json();
+      window.location.href = data.url;
+    });
+  </script>
+
   
   <footer>
     © 2026 TutorMatch · Ratings are submitted by verified students after completed sessions.
