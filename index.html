@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+document.getElementById("payBtn").addEventListener("click", async () => {
+  const res = await fetch("https://YOUR_BACKEND_URL/create-checkout", {
+    method: "POST"
+  });
+
+  const data = await res.json();
+  window.location.href = data.url;
+});
+  
+  
   <meta charset="UTF-8" />
   <title>TutorMatch – Tutoring Marketplace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
