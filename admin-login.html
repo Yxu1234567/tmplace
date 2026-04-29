@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Login – Tutor Marketplace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem;
+      width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #111827;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .error {
+      color: #dc2626;
+      margin-bottom: 1rem;
+      text-align: center;
+      display: none;
+    }
+
+    .success {
+      color: #16a34a;
+      margin-bottom: 1rem;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+
+    <div id="error" class="error">Invalid login</div>
+    <div id="success" class="success">Login successful</div>
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="admin@example.com" required />
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password" required />
+
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    async function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const errorBox = document.getElementById("error");
+      const successBox = document.getElementById("success");
+
+      errorBox.style.display = "none";
+      successBox.style.display = "none";
+
+      try {
+        const res = await fetch("http://localhost:4000/api/admin/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.status !== 200) {
+          errorBox.textContent = data.message || "Login failed";
+          errorBox.style.display = "block";
+          return;
+        }
+
+        successBox.textContent = "Login successful";
+        successBox.style.display = "block";
+
+        // Redirect to admin dashboard
+        setTimeout(() => {
+          window.location.href = "http://localhost:3000";
+        }, 800);
+
+      } catch (err) {
+        errorBox.textContent = "Server unreachable";
+        errorBox.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
