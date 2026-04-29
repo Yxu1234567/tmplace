@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – Tutor Marketplace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f7;
+      color: #111827;
+    }
+    header {
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+    nav a {
+      color: #e5e7eb;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 3rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      margin-top: 1.5rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tutor Marketplace</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <!-- Link to your React admin view if you deploy it -->
+      <!-- <a href="admin.html">Admin</a> -->
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>About This Platform</h2>
+      <p>
+        This tutor marketplace connects students with qualified tutors for 1‑on‑1 and group sessions.
+        Students can discover tutors by subject, availability, and rating, while tutors manage their
+        schedules, pricing, and sessions in one place.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>For Students</h2>
+      <ul>
+        <li>Browse tutors by subject, level, and price.</li>
+        <li>Book sessions based on real‑time availability.</li>
+        <li>Track upcoming sessions and past learning history.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>For Tutors</h2>
+      <ul>
+        <li>Create a detailed profile with subjects, bio, and hourly rate.</li>
+        <li>Manage availability, bookings, and session history.</li>
+        <li>View earnings and payout summaries.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Admin Panel</h2>
+      <p>
+        The admin side of the system provides real‑time views of users and tutors, including:
+      </p>
+      <ul>
+        <li>Live tutor list with status (active / suspended).</li>
+        <li>Ability to add or update tutors and see changes instantly.</li>
+        <li>Monitoring of overall platform health and usage.</li>
+      </ul>
+      <p>
+        The admin dashboard is powered by a React view (e.g. <code>TutorAdminView.jsx</code>) that
+        listens for real‑time updates from the backend, so new tutors appear without refreshing.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Tutor Marketplace. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
