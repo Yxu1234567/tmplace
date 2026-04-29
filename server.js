@@ -51,3 +51,16 @@ io.on('connection', (socket) => {
 });
 
 server.listen(4000, () => console.log('Server running on port 4000'));
+
+app.post('/api/admin/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // Simple demo login (replace with real DB check)
+  if (email === "admin@tmplace.com" && password === "admin123") {
+    return res.json({ message: "Login successful" });
+  }
+
+  res.status(401).json({ message: "Invalid email or password" });
+});
+
+
