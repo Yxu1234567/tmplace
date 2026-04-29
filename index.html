@@ -2,361 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>TutorMatch – Tutoring Marketplace</title>
+  <title>About – Tutor Marketplace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <style>
-    :root {
-      --primary: #3498db;
-      --primary-dark: #2c80b4;
-      --text-dark: #333;
-      --text-light: #7f8c8d;
-      --bg-light: #f5f5f5;
-      --card-bg: #ffffff;
-      --radius: 8px;
-      --shadow: 0 2px 4px rgba(0,0,0,0.08);
-    }
-
     body {
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.5;
+      padding: 0;
+      background: #f5f5f7;
+      color: #111827;
     }
-
-    /* Header */
     header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 1rem 2rem;
+      background: #111827;
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     header h1 {
       margin: 0;
-      font-size: 1.6rem;
-      letter-spacing: 0.5px;
+      font-size: 1.25rem;
     }
-
     nav a {
-      color: #ecf0f1;
-      margin-left: 1.2rem;
+      color: #e5e7eb;
+      margin-left: 1rem;
       text-decoration: none;
       font-size: 0.95rem;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
-    /* Main Layout */
     main {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem 3rem;
     }
-
-    .hero {
-      background: var(--card-bg);
-      padding: 1.8rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.4rem;
     }
-
-    .hero h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
+    .card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      margin-top: 1.5rem;
     }
-
-    /* Tutor Cards */
-    .tutor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+    ul {
+      padding-left: 1.2rem;
     }
-
-    .tutor-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      box-shadow: var(--shadow);
-      transition: transform 0.15s ease;
-    }
-
-    .tutor-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .tutor-card h3 {
-      margin: 0 0 0.3rem;
-      font-size: 1.2rem;
-    }
-
-    .subject {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .rating {
-      color: #f1c40f;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .rating span {
-      color: var(--text-dark);
-      margin-left: 0.3rem;
-      font-size: 0.85rem;
-    }
-
-    .review-count {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .price {
-      font-size: 0.9rem;
-      font-weight: bold;
-      margin-bottom: 0.6rem;
-    }
-
-    .actions {
-      margin-top: 0.6rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.45rem 0.9rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    .btn-outline {
-      background: #fff;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      margin-left: 0.4rem;
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    /* Rating Form */
-    .rate-form {
-      margin-top: 1rem;
-      border-top: 1px solid #ecf0f1;
-      padding-top: 0.8rem;
-    }
-
-    .rate-form label {
-      display: block;
-      font-size: 0.8rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .rate-form select,
-    .rate-form textarea {
-      width: 100%;
-      font-size: 0.85rem;
-      padding: 0.4rem;
-      margin-bottom: 0.5rem;
-      border-radius: 4px;
-      border: 1px solid #bdc3c7;
-      box-sizing: border-box;
-    }
-
-    .rate-form textarea {
-      resize: vertical;
-      min-height: 60px;
-    }
-
     footer {
       text-align: center;
+      padding: 1.5rem;
       font-size: 0.85rem;
-      color: var(--text-light);
-      padding: 1.5rem 0;
-      margin-top: 2rem;
+      color: #6b7280;
     }
   </style>
-  
 </head>
-
 <body>
-
-  
-  <button id="payBtn">Book & Pay</button>
-
-<script>
-  document.getElementById("payBtn").addEventListener("click", async () => {
-    const res = await fetch("https://YOUR_BACKEND_URL/create-checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        tutorId: "tutor_123",
-        price: 5000   // $50.00
-      })
-    });
-
-    const data = await res.json();
-    window.location.href = data.url;
-  });
-</script>
-  
-  
-  
   <header>
-    <h1>TutorMatch</h1>
+    <h1>Tutor Marketplace</h1>
     <nav>
-      <a href="#">Browse Tutors</a>
-      <a href="#">Become a Tutor</a>
-      <a href="#">Login</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <!-- Link to your React admin view if you deploy it -->
+      <!-- <a href="admin.html">Admin</a> -->
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <h2>Find top‑rated tutors, reviewed by real students</h2>
-      <p>Compare tutors by rating, subject, and price. Read feedback from students and leave your own rating after each session.</p>
+    <section class="card">
+      <h2>About This Platform</h2>
+      <p>
+        This tutor marketplace connects students with qualified tutors for 1‑on‑1 and group sessions.
+        Students can discover tutors by subject, availability, and rating, while tutors manage their
+        schedules, pricing, and sessions in one place.
+      </p>
     </section>
 
-    <section class="tutor-grid">
-      <!-- Tutor cards go here (same structure as your original) -->
-      <!-- You can paste your tutor cards directly here -->
-      
-      <!-- Tutor 1 -->
-      <article class="tutor-card">
-        <h3>Jordan Mitchell</h3>
-        <div class="subject">Mathematics • Calculus • Linear Algebra</div>
-        <div class="rating">★★★★★ <span>4.9 / 5.0</span></div>
-        <div class="review-count">132 student reviews</div>
-        <div class="price">TBA / hour</div>
-        <button id="payBtn">Book & Pay</button>
-        <p>Specializes in exam prep and step‑by‑step explanations for university‑level math.</p>
-        <div class="actions">
-          <a href="#" class="btn btn-primary">Book Session</a>
-          <a href="#" class="btn btn-outline">View Profile</a>
-        </div>
-        <form class="rate-form">
-          <label for="rating-Jordan">Rate this tutor</label>
-          <select id="rating-Jordan" name="rating">
-            <option value="">Select rating…</option>
-            <option>5 - Excellent</option>
-            <option>4 - Very Good</option>
-            <option>3 - Good</option>
-            <option>2 - Fair</option>
-            <option>1 - Poor</option>
-          </select>
-          <label for="review-Jordan">Write a short review</label>
-          <textarea id="review-Jordan" name="review" placeholder="Share your experience as a student..."></textarea>
-          <button type="submit" class="btn btn-primary">Submit Rating</button>
-        </form>
-      </article>
+    <section class="card">
+      <h2>For Students</h2>
+      <ul>
+        <li>Browse tutors by subject, level, and price.</li>
+        <li>Book sessions based on real‑time availability.</li>
+        <li>Track upcoming sessions and past learning history.</li>
+      </ul>
+    </section>
 
+    <section class="card">
+      <h2>For Tutors</h2>
+      <ul>
+        <li>Create a detailed profile with subjects, bio, and hourly rate.</li>
+        <li>Manage availability, bookings, and session history.</li>
+        <li>View earnings and payout summaries.</li>
+      </ul>
+    </section>
 
-     <!-- Tutor 2 -->
-      <article class="tutor-card">
-        <h3>Youmei Xu</h3>
-        <div class="subject">Computer Science • Academic Writing, Software Development </div>
-        <div class="rating">★★★★☆ <span>4.6 / 5.0</span></div>
-        <div class="review-count">89 student reviews</div>
-        <div class="price">TBA/ hour</div>
-        <button id="payBtn">Book & Pay</button>
-        <p>Helps students improve coding, writing researches</p>
-        <div class="actions">
-          <a href="#" class="btn btn-primary">Book Session</a>
-          <a href="#" class="btn btn-outline">View Profile</a>
-        </div>
-        <form class="rate-form">
-          <label for="rating-Youmei">Rate this tutor</label>
-          <select id="rating-Youmei" name="rating">
-            <option value="">Select rating…</option>
-            <option>5 - Excellent</option>
-            <option>4 - Very Good</option>
-            <option>3 - Good</option>
-            <option>2 - Fair</option>
-            <option>1 - Poor</option>
-          </select>
-          <label for="review-Youmei">Write a short review</label>
-          <textarea id="review-Youmei" name="review" placeholder="Share your experience as a student..."></textarea>
-          <button type="submit" class="btn btn-primary">Submit Rating</button>
-        </form>
-      </article>
-
-
-      
-      <!-- Tutor 3 -->
-      <article class="tutor-card">
-        <h3>Fatima Tahir </h3>
-        <div class="subject">Computer Science • Algorithms • Python</div>
-        <div class="rating">★★★★★ <span>4.8 / 5.0</span></div>
-        <div class="review-count">57 student reviews</div>
-        <div class="price">TBA / hour</div>
-        <button id="payBtn">Book & Pay</button>
-        <p>Focuses on problem‑solving skills, coding interviews, and clear explanations of complex topics.</p>
-        <div class="actions">
-          <a href="#" class="btn btn-primary">Book Session</a>
-          <a href="#" class="btn btn-outline">View Profile</a>
-        </div>
-        <form class="rate-form">
-          <label for="rating-Tahir">Rate this tutor</label>
-          <select id="rating-Tahir" name="rating">
-            <option value="">Select rating…</option>
-            <option>5 - Excellent</option>
-            <option>4 - Very Good</option>
-            <option>3 - Good</option>
-            <option>2 - Fair</option>
-            <option>1 - Poor</option>
-          </select>
-          <label for="review-Tahir">Write a short review</label>
-          <textarea id="review-Tahir" name="review" placeholder="Share your experience as a student..."></textarea>
-          <button type="submit" class="btn btn-primary">Submit Rating</button>
-        </form>
-      </article>
+    <section class="card">
+      <h2>Admin Panel</h2>
+      <p>
+        The admin side of the system provides real‑time views of users and tutors, including:
+      </p>
+      <ul>
+        <li>Live tutor list with status (active / suspended).</li>
+        <li>Ability to add or update tutors and see changes instantly.</li>
+        <li>Monitoring of overall platform health and usage.</li>
+      </ul>
+      <p>
+        The admin dashboard is powered by a React view (e.g. <code>TutorAdminView.jsx</code>) that
+        listens for real‑time updates from the backend, so new tutors appear without refreshing.
+      </p>
     </section>
   </main>
 
-
- 
-<button id="payBtn"><h5>Book & Pay</h5></button>
-  <script>
-    document.getElementById("payBtn").addEventListener("click", async () => {
-      const res = await fetch("https://YOUR_BACKEND_URL/create-checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" }
-      });
-
-      const data = await res.json();
-      window.location.href = data.url;
-    });
-  </script>
-
-<script src="checkout.js"></script>
-  
-  
   <footer>
-    © 2026 TutorMatch · Ratings are submitted by verified students after completed sessions.
+    &copy; <span id="year"></span> Tutor Marketplace. All rights reserved.
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
