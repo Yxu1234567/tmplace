@@ -1,5 +1,3 @@
-import io from 'socket.io-client';
-
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
