@@ -34,7 +34,7 @@ export default function TutorAdminView() {
     await fetch('http://localhost:4000/api/admin/tutors', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, status })
+      body: JSON.stringify({ name: "new tutor", status: "active" })
     });
 
     setName('');
