@@ -57,8 +57,8 @@ app.post('/api/admin/login', (req, res) => {
 
   // Simple demo login (replace with real DB check)
   if (email === "admin@tmplace.com" && password === "admin123") {
-    return window.location.href = "about.html";
-  //  return res.json({ message: "Login successful" });    
+  //  return window.location.href = "about.html";
+    return res.json({ message: "Login successful" });    
   }
 
   res.status(401).json({ message: "Invalid email or password" });
