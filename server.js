@@ -24,7 +24,7 @@ let tutors = [
 
 // Get tutors
 app.get("/api/admin/tutors", (req, res) => {
-  res.json({ total: tutors.length, tutors });
+  res.json({ total: tutors.length, tutors: tutors });
 });
 
 // Add tutor
