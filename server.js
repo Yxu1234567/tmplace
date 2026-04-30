@@ -1,5 +1,6 @@
 import io from "socket.io-clinet";
 
+const socket = io("http://localhost:4000");
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
