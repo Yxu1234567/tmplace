@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:4000');
 
 export default function TutorAdminView() {
   const [tutors, setTutors] = useState([]);
@@ -12,7 +12,7 @@ export default function TutorAdminView() {
 
   // Load tutors on mount
   useEffect(() => {
-    fetch('http://localhost:3000/api/admin/tutors')
+    fetch('http://localhost:4000/api/admin/tutors')
       .then(res => res.json())
       .then(data => {
         setTutors(data.tutors);
@@ -31,7 +31,7 @@ export default function TutorAdminView() {
   const addTutor = async (e) => {
     e.preventDefault();
 
-    await fetch('http://localhost:3000/api/admin/tutors', {
+    await fetch('http://localhost:4000/api/admin/tutors', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, status })
